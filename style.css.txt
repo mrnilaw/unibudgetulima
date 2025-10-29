@@ -1,0 +1,69 @@
+:root {
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #f47c20;
+  --accent-dark: #d05f08;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* 🌙 Modo oscuro mejorado (Estética más neutra) */
+[data-theme="dark"] {
+  --bg: #121212; /* Fondo casi negro */
+  --card: #1E1E1E; /* Tarjetas gris oscuro */
+  --text: #E0E0E0; /* Texto gris claro (menos azulado) */
+  --muted: #888888; /* Texto silenciado gris neutro */
+  --accent: #ffa94d; /* Se mantiene el acento naranja */
+  --accent-dark: #ff8400; /* Se mantiene el acento naranja oscuro */
+  --shadow: rgba(255, 255, 255, 0.07); /* Sombra/brillo muy sutil */
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s, color 0.3s;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 6px 18px var(--shadow);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Botones */
+button {
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+button:hover { background: var(--accent-dark); }
+
+/* Layout */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+  color: white;
+  padding: 10px 20px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin: 20px;
+}
+
+@media (max-width: 900px) {
+  .main-grid { grid-template-columns: 1fr; }
+}

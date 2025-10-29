@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UniBudget</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="left">
+        <h1>UniBudget</h1>
+        <p>Gestor de finanzas para estudiantes</p>
+      </div>
+
+      <div class="right">
+        <input id="studentName" placeholder="Tu nombre (p. ej. Juan)" maxlength="30" />
+        <button id="themeToggle" title="Cambiar tema">🌓</button>
+      </div>
+    </header>
+
+    <main class="main-grid">
+            <section class="panel card">
+        <h3>Agregar transacción</h3>
+        <form id="txForm">
+          <label>Fecha:
+            <input id="date" type="date" required />
+          </label>
+          <label>Categoría:
+            <select id="category">
+              <option>Matrícula</option>
+              <option>Cafetería</option>
+              <option>Transporte</option>
+              <option>Materiales / Libros</option>
+              <option>Alojamiento</option>
+              <option>Entretenimiento</option>
+              <option>Salud</option>
+              <option>Otros</option>
+            </select>
+          </label>
+          <label>Tipo:
+            <select id="type">
+              <option value="gasto">Gasto</option>
+              <option value="ingreso">Ingreso</option>
+            </select>
+          </label>
+          <label>Monto (S/):
+            <input id="amount" type="number" step="0.01" min="0.01" required />
+          </label>
+          <label>Nota:
+            <input id="note" type="text" placeholder="Ej: Almuerzo" />
+          </label>
+          <div class="form-actions">
+            <button type="submit">Guardar</button>
+            <button type="button" id="btnClear">Limpiar</button>
+          </div>
+        </form>
+      </section>
+
+            <section class="dashboard card">
+        <div class="dash-top">
+          <div>
+            <p>Ingresos</p>
+            <h2 id="totalIncome">S/ 0.00</h2>
+          </div>
+          <div>
+            <p>Gastos</p>
+            <h2 id="totalExpense">S/ 0.00</h2>
+          </div>
+          <div>
+            <p>Balance</p>
+            <h2 id="balance">S/ 0.00</h2>
+          </div>
+        </div>
+
+        <canvas id="pieChart"></canvas>
+      </section>
+
+            <aside class="list-panel card">
+        <h4>Transacciones</h4>
+        <ul id="txList"></ul>
+        <div id="txCount" class="small-muted">0 registros</div>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      UniBudget — Prototipo académico
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
